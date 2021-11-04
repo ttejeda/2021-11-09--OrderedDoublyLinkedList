@@ -1,0 +1,25 @@
+body {
+    text-align: center;
+    color: black;
+}
+
+#info {
+    background-color: #B0C2F2;
+    margin: auto;
+    text-align: center;
+    margin: 2%;
+}
+
+#field {
+    margin: 7px;
+}
+
+button {
+    margin: 2px;
+}
+
+#form, #console {
+    width: 50%;
+    text-align: center;
+    display: inline;
+}

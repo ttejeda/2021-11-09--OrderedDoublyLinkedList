@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Inventario</title>
+</head>
+<body>
+    <div id="info">
+        <h1>Inventario de la tienda de abarrotes "Hoy no fío, mañana sí"</h1>
+        <p>Debido al corto presupuesto con el que se construyó el sistema, este solo se limita al registro y manipulación de máximo 20 artículos.</p>
+    </div>
+    <div id="form">
+        <form>
+            <h2>Registro</h2>
+            <div id="field">
+                <label for="code">
+                <b>Código del producto:</b><br>
+                <input id="code" type="number" placeholder="1093123019">
+                </label>
+            </div>
+            <div id="field">
+                <label for="name">
+                    <b>Nombre del producto:</b><br>
+                    <input id="name" type="text" placeholder="Huevos">
+                </label>
+            </div>
+            <div id="field">
+                <label for="amount">
+                    <b>Cantidad:</b><br>
+                    <input id="amount" type="number" placeholder="35">
+                </label>
+            </div>
+            <div id="field">
+                <label for="cost">
+                    <b>Precio:</b><br>
+                    <input id="cost" type="number" placeholder="7">
+                </label>
+            </div>
+            <div id="field">
+                <label for="position">
+                    <b>Posición (opcional):</b><br>
+                    <input id="position" type="number" placeholder="3">
+                </label>
+            </div>
+            <div id="field">
+                <button type="button" id="btnAdd">Agregar</button>
+                <button type="button" id="btnSearch">Buscar</button>
+                <button type="button" id="btnDelete">Eliminar</button><br>
+                <button type="button" id="btnList">Enlistar</button>
+                <button type="button" id="btnTsil">Invertir lista</button>
+                <button type="button" id="btnInsert">Insertar</button>
+            </div>
+        </form>
+    </div>
+    <div id="result">
+        <h2>Resultados:</h2>
+    </div>
+</body>
+<script src="main.js" type="module"></script>
+</html>
