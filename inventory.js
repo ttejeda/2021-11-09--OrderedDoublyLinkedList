@@ -68,7 +68,7 @@ export default class Inventory{
 
         return temp;
     }
-/*
+
     deleteProductByCode(code){
         let exist = this._searchByCode(code);
         if(!exist){
@@ -78,6 +78,10 @@ export default class Inventory{
         let temp = this._start;
         if(temp.getCode() == code){
             this._start = temp.next;
+            if(this._start != null){
+                this._start.setPrev(null);
+            }
+            temp.setNext(null);
             return temp;
         }
 
@@ -87,10 +91,12 @@ export default class Inventory{
             temp = temp.next;
         }
 
-        prev.next = temp.next;
+        prev.setNext(temp.next);
         temp.next = null;
+        temp.prev = null;
+        prev.next.setPrev(prev);
         return temp;
-    }*/
+    }
 
     list(){
         let temp = this._start;
