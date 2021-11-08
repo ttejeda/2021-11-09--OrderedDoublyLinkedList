@@ -12,21 +12,34 @@ export default class Inventory{
 
         let exist = this._searchByCode(product.getCode());
         if(!exist){
-            let last = this._getLast();
-            last.setNext(product);
+            this._insert(product);
             return true;
         }
 
         return false;
     }
 
-    _getLast(){
+    _insert(product){
         let temp = this._start;
+        if(product.getCode() < temp.getCode()){
+            this._start = product;
+            product.setNext(temp);
+            temp.setPrev(product);
+            return;
+        }
+
         while(temp.next != null){
+            if(temp.getCode() > product.getCode()){
+                product.setPrev(temp.prev);
+                product.setNext(temp);
+                temp.setPrev(product);
+                return;
+            }
             temp = temp.next;
         }
 
-        return temp;
+        temp.setNext(product);
+        product.setPrev(temp);
     }
 
     _searchByCode(code){
@@ -55,7 +68,7 @@ export default class Inventory{
 
         return temp;
     }
-
+/*
     deleteProductByCode(code){
         let exist = this._searchByCode(code);
         if(!exist){
@@ -77,7 +90,7 @@ export default class Inventory{
         prev.next = temp.next;
         temp.next = null;
         return temp;
-    }
+    }*/
 
     list(){
         let temp = this._start;
@@ -112,7 +125,7 @@ export default class Inventory{
 
         return tsil;
     }
-
+/*
     insertProduct(product, position){
         let temp = this._start;
         if(position == 0){
@@ -135,5 +148,5 @@ export default class Inventory{
         }
         
         return false;
-    }
+    }*/
 }

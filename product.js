@@ -1,6 +1,7 @@
 export default class Product{
 
     constructor(code, name, amount, cost, total){
+        this.prev = null;
         this._code = code;
         this._name = name;
         this._amount = amount;
@@ -31,5 +32,9 @@ export default class Product{
 
     setNext(next){
         this.next = next;
+    }
+
+    setPrev(prev){
+        this.prev = prev;
     }
 }
