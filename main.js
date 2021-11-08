@@ -10,13 +10,11 @@ class App{
         let btnDelete = document.getElementById("btnDelete");
         let btnList = document.getElementById("btnList");
         let btnTsil = document.getElementById("btnTsil");
-        let btnInsert = document.getElementById("btnInsert");
         btnAdd.addEventListener("click", this._addProduct);
         btnSearch.addEventListener("click", this._searchProduct);
         btnDelete.addEventListener("click", this._deleteProduct);
         btnList.addEventListener("click", this._listProducts);
         btnTsil.addEventListener("click", this._tsilProducts);
-        btnInsert.addEventListener("click", this._insert);
     }
     
     _addProduct = () => {
@@ -75,30 +73,6 @@ class App{
     _tsilProducts = () => {
         let result = this._inventory.tsil();
         this._showActions(result);
-    }
-
-    _insert = () => {
-        let inpInsert = document.getElementById("position");
-        let insert = Number(inpInsert.value);
-
-        if(!insert || insert == 0){
-            this._showActions("Coloca una posición.");
-            return;
-        }
-
-        inpInsert.value = "";
-        let product = this._readForm();
-        if(!product){
-            this._showActions("Inserta los datos necesarios.");
-            return;
-        }
-        let result = this._inventory.insertProduct(product, insert - 1);
-        if(!result){
-            this._showActions("Esta posición no existe.");
-            return;
-        }
-
-        this._showActions(`Insertado ${product.getName()} en ${insert}`);
     }
 
     _getCodeForm(){
